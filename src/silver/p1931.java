@@ -1,6 +1,5 @@
 package silver;
 
-import javax.sound.midi.Soundbank;
 import java.util.*;
 
 public class p1931 {
@@ -19,17 +18,14 @@ public class p1931 {
         Arrays.sort(times, new Comparator<long[]>() {
             @Override
             public int compare(long[] o1, long[] o2) {
-                if(o1[1] > o2[1]) {
-                    if(o1[0] > o2[0]) return 1;
-                    else return 0;
-                }
+                if(o1[1] > o2[1]) return 1;
+                else if(o1[1] < o2[1]) return -1;
                 else {
                     if(o1[0] > o2[0]) return 1;
-                    else return 0;
+                    else return -1;
                 }
             }
         });
-        for(int i=0; i<N; i++)
         long cnt = 1;
         long end = times[0][1];
         for(int i=1; i<N; i++) {
